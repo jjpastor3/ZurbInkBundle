@@ -147,7 +147,7 @@ class GremoZurbInkExtension extends \Twig_Extension
         } catch (\Exception $exception) {
             // Only for Symfony 4, try also the "assets" folder (this will not work for customs "assets" folder)
             if (version_compare(Kernel::VERSION, 4, '>=')) {
-                $assetsDir = realpath(rtrim($this->rootDir, '\\/').'/../assets');
+                $assetsDir = realpath(rtrim($this->rootDir, '\\/').'/assets');
                 if ($assetsDir) {
                     return $this->fileLocator->locate($resource, $assetsDir);
                 }
