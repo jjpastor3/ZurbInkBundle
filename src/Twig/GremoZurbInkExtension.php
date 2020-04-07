@@ -16,9 +16,11 @@ use Gremo\ZurbInkBundle\Twig\Parser\InlineCssTokenParser;
 use Gremo\ZurbInkBundle\Util\HtmlUtils;
 use Symfony\Component\Config\FileLocatorInterface;
 use Symfony\Component\HttpKernel\Kernel;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 use Twig_SimpleFunction;
 
-class GremoZurbInkExtension extends \Twig_Extension
+class GremoZurbInkExtension extends AbstractExtension
 {
     const NAME = 'gremo_zub_ink';
 
@@ -51,7 +53,7 @@ class GremoZurbInkExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new Twig_SimpleFunction('zurb_ink_add_stylesheet', [$this, 'addStylesheet']),
+            new TwigFunction('zurb_ink_add_stylesheet', [$this, 'addStylesheet']),
         ];
     }
 
